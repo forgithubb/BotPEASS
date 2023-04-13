@@ -83,7 +83,7 @@ def send_telegram_message(message: str):
     #r = requests.get(f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage?parse_mode=MarkdownV2&text={message}&chat_id={telegram_chat_id}')
     
     #without markdown
-    message = message.replace("-", "\-").replace("\n", "")
+    message = message.replace("-", "\-")
     r = requests.get(f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage?text={message}&chat_id={telegram_chat_id}')
 
 
