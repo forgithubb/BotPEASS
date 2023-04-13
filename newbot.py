@@ -22,7 +22,7 @@ def main():
                 print(f"[*] CVE *with Exploit-db ID* Message:\n{cve_message}")
             else:
                 print(f"[*] CVE Message:\n{cve_message}")
-            send_slack_mesage(cve_message)
+            send_telegram_message(cve_message)
         
         print("[*] {} new CVE's to report this collection cycle".format(len(data)))
     else:
