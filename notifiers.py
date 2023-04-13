@@ -100,7 +100,7 @@ def send_slack_mesage(message: str):
 
 #################### SEND MESSAGES - TELEGRAM #########################
 
-def send_telegram_message(message: str, public_expls_msg: str):
+def send_telegram_message(message: str):
     ''' Send a message to the telegram group '''
 
     telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -114,8 +114,8 @@ def send_telegram_message(message: str, public_expls_msg: str):
         print("TELEGRAM_CHAT_ID wasn't configured in the secrets!")
         return
     
-    if public_expls_msg:
-        message = message + "\n" + public_expls_msg
+    #if public_expls_msg:
+        #message = message + "\n" + public_expls_msg
 
     message = message.replace(".", "\.").replace("-", "\-").replace("(", "\(").replace(")", "\)").replace("_", "").replace("[","\[").replace("]","\]").replace("{","\{").replace("}","\}").replace("=","\=")
     r = requests.get(f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage?parse_mode=MarkdownV2&text={message}&chat_id={telegram_chat_id}')
