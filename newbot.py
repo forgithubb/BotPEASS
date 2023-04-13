@@ -4,7 +4,7 @@ import os
 
 import requests
 
-from notifiers import generate_new_cve_message, send_slack_mesage, send_telegram_message
+from notifiers import generate_new_cve_message, send_telegram_message
 from providers import CVERetrieverNVD
 
 DEBUG = False
