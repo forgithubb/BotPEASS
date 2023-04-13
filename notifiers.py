@@ -60,44 +60,6 @@ def generate_new_cve_message(cve_data: dict) -> str:
 #     return message
 
 
-#################### SEND MESSAGES - SLACK #########################
-
-def send_slack_mesage(message: str):
-    ''' Send a message to the slack group '''
-
-    slack_url = os.getenv('SLACK_WEBHOOK')
-
-    if not slack_url:
-        #print("SLACK_WEBHOOK wasn't configured in the secrets!")
-        return
-    
-    json_params = {
-        "blocks": [
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn", 
-                    "text": message
-                }
-            },
-            {
-                "type": "divider"
-            }
-        ]
-    }
-
-    # if public_expls_msg:
-    #     json_params["blocks"].append({
-    #             "type": "section",
-    #             "text": {
-    #                 "type": "mrkdwn", 
-    #                 "text": public_expls_msg
-    #             }
-    #     })
-    requests.post(slack_url, json=json_params)
-    return
-
-
 #################### SEND MESSAGES - TELEGRAM #########################
 
 def send_telegram_message(message: str):
@@ -128,27 +90,3 @@ def send_telegram_message(message: str):
             print("ERROR SENDING TO TELEGRAM: " + message.split("\n")[0] + resp["description"])
     return
 
-
-#################### SEND MESSAGES - DISCORD #########################
-
-def send_discord_message(message: str, public_expls_msg: str):
-    ''' Send a message to the discord channel webhook '''
-
-    discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
-
-    if not discord_webhook_url:
-        print("DISCORD_WEBHOOK_URL wasn't configured in the secrets!")
-        return
-    
-    if public_expls_msg:
-        message = message + "\n" + public_expls_msg
-
-    message = message.replace("(", "\(").replace(")", "\)").replace("_", "").replace("[","\[").replace("]","\]").replace("{","\{").replace("}","\}").replace("=","\=")
-    #webhook = Webhook.from_url(discord_webhook_url, adapter=RequestsWebhookAdapter())
-    webhook = SyncWebhook.from_url(discord_webhook_url)
-    if public_expls_msg:
-        message = message + "\n" + public_expls_msg
-    
-    #webhook.send(message)
-    webhook.send(content=message)
-    return
