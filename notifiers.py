@@ -37,7 +37,7 @@ def generate_new_cve_message(cve_data: dict) -> str:
     if cve_data.get("\nExploit_References"):
         message += f"\n🔓  *Exploit References* (_limit 5_):\n" + "\n".join(cve_data["Exploit_References"][:5])
     
-    message += f"\n🔗  *GitHub Dork:* https://github.com/search?q={cve_data['CVE_ID']}"
+    #message += f"\n🔗  *GitHub Dork:* https://github.com/search?q={cve_data['CVE_ID']}"
     message += "\nℹ️   *More information* (_limit to 5_):\n" + "\n".join(cve_data["Normal_References"][:5])
     message += "\n"
     return message
