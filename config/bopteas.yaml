@@ -29,50 +29,54 @@ DESCRIPTION_KEYWORDS_I:
 - local file inclusion
 - remote file inclusion
 - remote code execution
-- " sudo "
-- " suid "
-- " UAC "
-- docker
-- kubernetes
-- " lxc "
+- directory traversal
+- path traversal
+- command injection
+- information disclosure
+- access control
+- file upload
+- server-side request forgery
+- xxe injection
+- insecure
+- graphql api
+- server-side template injection
+- request smuggling
 
 DESCRIPTION_KEYWORDS:
-- User Account Control
 - LFI
 - RCE
 - RFI
 - SQLi
+- IDOR
+- SSRF
+- XXE
+- SSTI
+- JWT
+- OAuth
 
 PRODUCT_KEYWORDS_I:
-- kubernetes
+- bitrix
+- 1c
 
 PRODUCT_KEYWORDS:
-- " AEM "
-- Adobe AEM
-- AdobeCQ
-- Adobe CQ
-- Adobe Experience Platform
-- Adobe Experience Manager
+- 1C
+- Apache
+- Bitrix
 - Cisco
 - Citrix
-- CrowdStrike
 - Docker
-- Fortinet Fortigate
-- Groovy
-- IBM HTTP
-- Juniper
-- Magento
+- Drupal
+- Joomla
+- Grafana
 - Microsoft Exchange
 - Microsoft SQL
-- Netscaler
-- Pulse Secure
+- OpenLDAP
 - Python Django
 - Python Flask
 - Spring Boot
 - Spring Core
 - Spring Security
 - SwaggerUI
-- Symantec Endpoint
 - Tomcat
 - Trend Micro
-- VMware Horizon
+- Wordpress
