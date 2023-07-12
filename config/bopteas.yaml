@@ -32,7 +32,6 @@ DESCRIPTION_KEYWORDS_I:
 - directory traversal
 - path traversal
 - command injection
-- information disclosure
 - access control
 - file upload
 - server-side request forgery
